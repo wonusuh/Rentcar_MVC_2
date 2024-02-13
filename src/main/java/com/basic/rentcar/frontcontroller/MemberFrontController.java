@@ -21,15 +21,20 @@ public class MemberFrontController extends HttpServlet {
 		String ctx = request.getContextPath();
 		System.out.print("request.getContextPath() : " + ctx + "\n");
 		String command = uri.substring(ctx.length());
-		System.out.println("uri.substring(ctx.length() : " + command + "\n");
+		System.out.println("uri.substring(ctx.length()) : " + command + "\n");
 		Controller controller = null;
 		String nextPage = null;
 		HandlerMapping mapping = new HandlerMapping();
 		controller = mapping.getController(command);
 		nextPage = controller.requestHandler(request, response);
 		if (nextPage != null) {
+			if (nextPage == "main") {
+				response.sendRedirect(nextPage + ".jsp");
+				return;
+			}
 			if (nextPage.indexOf("redirect:") != -1) {
 				response.sendRedirect(nextPage.split(":")[1]);
+				return;
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher(ViewResolver.makeView(nextPage));
 				rd.forward(request, response);

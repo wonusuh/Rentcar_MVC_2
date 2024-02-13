@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="06_memberLoginPro.jsp" method="post">
+<%@include file="./02_top.jsp"%>
+<div align="center">
+	<form action="${ctx}/memberLogin.do" method="post">
 		<table border="1">
 			<tr height="100">
 				<td align="center" colspan="2"><font size="6" color="gray">
@@ -28,5 +23,5 @@
 			</tr>
 		</table>
 	</form>
-</body>
-</html>
+</div>
+<%@include file="./03_bottom.jsp"%>

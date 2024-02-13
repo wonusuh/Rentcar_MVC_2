@@ -3,6 +3,7 @@ package com.basic.rentcar.frontcontroller;
 import java.util.HashMap;
 
 import com.basic.rentcar.controller.member.MemberLoginController;
+import com.basic.rentcar.controller.member.MemberLogoutController;
 
 public class HandlerMapping {
 	private HashMap<String, Controller> mappings;
@@ -10,6 +11,7 @@ public class HandlerMapping {
 	public HandlerMapping() {
 		mappings = new HashMap<String, Controller>();
 		mappings.put("/memberLogin.do", new MemberLoginController());
+		mappings.put("/memberLogout.do", new MemberLogoutController());
 	}
 
 	public Controller getController(String key) {
