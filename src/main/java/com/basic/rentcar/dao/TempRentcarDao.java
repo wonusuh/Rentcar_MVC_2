@@ -11,56 +11,14 @@
 //import com.basic.rentcar.vo.CarViewVO;
 //import com.basic.rentcar.vo.RentcarVO;
 //
-//public class RentcarDao {
-//	private RentcarDao() {
+//public class TempRentcarDao {
+//	private TempRentcarDao() {
 //	}
 //
-//	private static RentcarDao dao = new RentcarDao();
+//	private static TempRentcarDao dao = new TempRentcarDao();
 //
-//	public static RentcarDao getInstance() {
+//	public static TempRentcarDao getInstance() {
 //		return dao;
-//	}
-//
-//	public ArrayList<RentcarVO> getSelectCar() {
-//
-//		ArrayList<RentcarVO> v = new ArrayList<RentcarVO>();
-//
-//		try {
-//
-//			conn = getConnection();
-//
-//			String sql = "SELECT * FROM rentcar ORDER BY no DESC";
-//			// String sql = "SELECT * FROM rentcar ORDER BY no DESC LIMIT 3";
-//			pstmt = conn.prepareStatement(sql);
-//
-//			rs = pstmt.executeQuery();
-//			int count = 0;
-//			while (rs.next()) {
-//
-//				RentcarVO bean = new RentcarVO();
-//				bean.setNo(rs.getInt("no"));
-//				bean.setName(rs.getString("name"));
-//				bean.setCategory(rs.getInt("category"));
-//				bean.setPrice(rs.getInt("price"));
-//				bean.setUsepeople(rs.getInt("usepeople"));
-//				bean.setTotalQty(rs.getInt("total_qty"));
-//				bean.setCompany(rs.getString("company"));
-//				bean.setImg(rs.getString("img"));
-//				bean.setInfo(rs.getString("info"));
-//
-//				v.add(bean);
-//				count++;
-//
-//				if (count > 2)
-//					break;
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			dbclose();
-//		}
-//
-//		return v;
 //	}
 //
 //	public RentcarVO getOneCar(int no) {
@@ -149,79 +107,7 @@
 //		}
 //	}
 //
-//	public ArrayList<RentcarVO> getAllCar() {
-//		ArrayList<RentcarVO> v = new ArrayList<>();
-//
-//		RentcarVO bean = null;
-//
-//		conn = getConnection();
-//		try {
-//			String sql = "SELECT * FROM rentcar";
-//			pstmt = conn.prepareStatement(sql);
-//
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//
-//				bean = new RentcarVO();
-//				bean.setNo(rs.getInt("no"));
-//				bean.setName(rs.getString("name"));
-//				bean.setCategory(rs.getInt("category"));
-//				bean.setPrice(rs.getInt("price"));
-//				bean.setUsepeople(rs.getInt("usepeople"));
-//				bean.setTotalQty(rs.getInt("total_qty"));
-//				bean.setCompany(rs.getString("company"));
-//				bean.setImg(rs.getString("img"));
-//				bean.setInfo(rs.getString("info"));
-//
-//				v.add(bean);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			dbclose();
-//		}
-//		return v;
-//
-//	}
-//
-//	public ArrayList<RentcarVO> getCategoryCar(int cate) {
-//
-//		ArrayList<RentcarVO> v = new ArrayList<>();
-//
-//		RentcarVO bean = null;
-//
-//		conn = getConnection();
-//		try {
-//			String sql = "SELECT * FROM rentcar WHERE category=?";
-//			pstmt = conn.prepareStatement(sql);
-//
-//			pstmt.setInt(1, cate);
-//
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//
-//				bean = new RentcarVO();
-//				bean.setNo(rs.getInt("no"));
-//				bean.setName(rs.getString("name"));
-//				bean.setCategory(rs.getInt("category"));
-//				bean.setPrice(rs.getInt("price"));
-//				bean.setUsepeople(rs.getInt("usepeople"));
-//				bean.setTotalQty(rs.getInt("total_qty"));
-//				bean.setCompany(rs.getString("company"));
-//				bean.setImg(rs.getString("img"));
-//				bean.setInfo(rs.getString("info"));
-//
-//				v.add(bean);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			dbclose();
-//		}
-//		return v;
-//	}
+//	
 //
 //	public ArrayList<CarViewVO> getAllReserve(String id) {
 //

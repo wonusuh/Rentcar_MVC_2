@@ -1,6 +1,6 @@
 package com.basic.rentcar.vo;
 
-public class RentcarVO {
+public class CarVO {
 	private int no;
 	private String name;
 	private int category;
@@ -11,10 +11,10 @@ public class RentcarVO {
 	private String img;
 	private String info;
 
-	public RentcarVO() {
+	public CarVO() {
 	}
 
-	public RentcarVO(int no, String name, int category, int price, int usepeople, int totalQty, String company,
+	public CarVO(int no, String name, int category, int price, int usepeople, int totalQty, String company,
 			String img, String info) {
 		super();
 		this.no = no;

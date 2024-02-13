@@ -1,5 +1,5 @@
-<%@page import="com.basic.rentcar.vo.RentcarVO"%>
-<%@page import="com.basic.rentcar.dao.RentcarDao"%>
+<%@page import="com.basic.rentcar.vo.CarVO"%>
+<%@page import="com.basic.rentcar.dao.TempRentcarDao"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,13 +14,13 @@
 	int no = Integer.parseInt(request.getParameter("no"));
 
 		// 데이터베이스에 접근
-		RentcarDao rdao = RentcarDao.getInstance();
+		TempRentcarDao rdao = TempRentcarDao.getInstance();
 
 		// 렌트카 하나에 대한 정보를 얻어옴
-		RentcarVO bean = rdao.getOneCar(no);
+		CarVO bean = rdao.getOneCar(no);
 		
 		if(bean.getTotalQty() == 0 ){
-			%>
+	%>
 			
 			<script>
 			alert(" 이 차랑은 모두 대여 중입니다");

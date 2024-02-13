@@ -1,7 +1,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.basic.rentcar.vo.CarViewVO"%>
-<%@page import="com.basic.rentcar.dao.RentcarDao"%>
+<%@page import="com.basic.rentcar.dao.TempRentcarDao"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,9 +14,9 @@
 <body>
 
  <%
- 		String id = (String) session.getAttribute("id");
- 		
- 		if (id == null) {
+ String id = (String) session.getAttribute("id");
+  		
+  		if (id == null) {
  %>
 	<script type="text/javascript">
 		alert("로그인을 먼저 해주세요.");
@@ -25,12 +25,12 @@
 	
 	
 	<%
-       return;
- 		}
-						
-			RentcarDao rdao = RentcarDao.getInstance();
-			ArrayList<CarViewVO> v = rdao.getAllReserve(id);
-%> 
+			return;
+			 		}
+							
+				TempRentcarDao rdao = TempRentcarDao.getInstance();
+				ArrayList<CarViewVO> v = rdao.getAllReserve(id);
+			%> 
  <div align="center">
 		<table>
 			<tr height="100">
