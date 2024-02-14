@@ -9,7 +9,9 @@ import com.basic.rentcar.controller.rentcar.CarByCategoryController;
 import com.basic.rentcar.controller.rentcar.CarOptionSelectController;
 import com.basic.rentcar.controller.rentcar.CarReserveInfoController;
 import com.basic.rentcar.controller.rentcar.CarReserveResultController;
+import com.basic.rentcar.controller.rentcar.CarReserveViewController;
 import com.basic.rentcar.controller.rentcar.RentcarReserveMainController;
+import com.basic.rentcar.controller.rentcar.ReserveDeleteController;
 
 public class HandlerMapping {
 	private HashMap<String, Controller> mappings;
@@ -24,6 +26,8 @@ public class HandlerMapping {
 		mappings.put("/carReserveInfo.do", new CarReserveInfoController());
 		mappings.put("/carOptionSelect.do", new CarOptionSelectController());
 		mappings.put("/carReserveResult.do", new CarReserveResultController());
+		mappings.put("/carReserveView.do", new CarReserveViewController());
+		mappings.put("/reserveDelete.do", new ReserveDeleteController());
 	}
 
 	public Controller getController(String key) {
