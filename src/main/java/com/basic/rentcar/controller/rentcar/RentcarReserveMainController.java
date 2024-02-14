@@ -15,6 +15,7 @@ import com.basic.rentcar.vo.CarVO;
 public class RentcarReserveMainController implements Controller {
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		CarDAO cDAO = CarDAO.getInstance();
 		ArrayList<CarVO> list = cDAO.getSelectCar();
 		HttpSession session = req.getSession();

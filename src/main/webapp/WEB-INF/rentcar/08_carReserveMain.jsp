@@ -10,8 +10,8 @@
 		<tr height="240">
 			<c:forEach var="vo" items="${list}">
 				<td width="333" align="center"><a
-					href="01_carMain.jsp?center=10_carReserveInfo.jsp?no=${vo.getNo()}">
-						<img alt="" src="img/${vo.getImg()}" width="300" height="220">
+					href="${ctx}/carReserveInfo.do?no=${vo.getNo()}"> <img
+						alt="temp image" src="img/${vo.getImg()}" width="300" height="220">
 				</a>
 					<p>차량명 : ${vo.getName()}</p></td>
 			</c:forEach>
@@ -32,9 +32,7 @@
 		</select> <input type="submit" value="검색" />&nbsp;&nbsp;
 	</form>
 	<%-- button은 form 밖에 위치시키기 --%>
-	<button
-		onclick="location.href='carAllList.do'">전체
-		검색</button>
+	<button onclick="location.href='carAllList.do'">전체 검색</button>
 
 
 </div>

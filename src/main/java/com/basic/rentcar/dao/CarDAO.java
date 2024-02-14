@@ -112,4 +112,33 @@ public class CarDAO {
 		}
 		return v;
 	}
+
+	public CarVO getOneCar(int no) {
+		CarVO bean = new CarVO();
+		conn = DBUtil.getConnection();
+		try {
+			String sql = "SELECT * FROM rentcar WHERE no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				System.out.println("no == " + no);
+				System.out.println("total qty == " + rs.getInt("total_qty"));
+				bean.setNo(no);
+				bean.setName(rs.getString("name"));
+				bean.setCategory(rs.getInt("category"));
+				bean.setPrice(rs.getInt("price"));
+				bean.setUsepeople(rs.getInt("usepeople"));
+				bean.setTotalQty(rs.getInt("total_qty"));
+				bean.setCompany(rs.getString("company"));
+				bean.setImg(rs.getString("img"));
+				bean.setInfo(rs.getString("info"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return bean;
+	}
 }

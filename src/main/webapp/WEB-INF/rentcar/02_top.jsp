@@ -16,21 +16,17 @@
 					style="text-decoration: none"> <img alt="홈으로"
 						src="${ctx}/img/rent_logo.jpg" height="120">
 				</a></td>
-				<%
-
-				%>
-				<c:if test="${vo eq null}">
+				<c:if test="${user eq null}">
 					<td align="center" width="200">GUEST 님
 						<button onclick="location.href='${ctx}/memberLogin.do'">로그인</button>
 					</td>
 				</c:if>
-				<c:if test="${vo ne null}">
-					<td align="center" width="200">${vo.id}님
+				<c:if test="${user ne null}">
+					<td align="center" width="200">${user.id}님
 						<button onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button>
 					</td>
 				</c:if>
 			</tr>
-
 			<tr height="50">
 				<td align="center" width="200" bgcolor="pink"><font
 					color="white" size="5"><a

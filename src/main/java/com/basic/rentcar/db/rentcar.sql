@@ -81,3 +81,5 @@ update rentcar set total_qty =total_qty - 3 where no = 1;
 update rentcar set total_qty =total_qty + 3 where n = 1;
 
 select * from rentcar a2 ,carreserve a1  where a1.id = 'qwer' and a1.no = a2.no;
+
+SELECT * FROM rentcar;

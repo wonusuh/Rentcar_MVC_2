@@ -14,6 +14,7 @@ public class CarAllListController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		CarDAO cDAO = CarDAO.getInstance();
 		HttpSession session = req.getSession();
 		session.setAttribute("list", cDAO.getAllCar());
