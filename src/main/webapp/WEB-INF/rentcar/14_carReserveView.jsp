@@ -25,7 +25,7 @@
 		<c:forEach var="viewVO" items="${viewList}">
 			<tr height="70">
 				<td height="70" align="center"><img
-					src="img/${viewVO.getImg()}" width="120" height="70"></td>
+					src="Uploads/${viewVO.getImg()}" width="120" height="70"></td>
 				<td width="100" align="center">${viewVO.getName()}</td>
 				<td width="150" align="center">${viewVO.getRday()}</td>
 				<td width="150" align="center">${viewVO.getDday()}</td>

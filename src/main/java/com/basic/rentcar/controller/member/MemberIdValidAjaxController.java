@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.basic.rentcar.frontcontroller.Controller;
 
-import model.MemberDAO;
+import model.dao.MemberDAO;
 
 public class MemberIdValidAjaxController implements Controller {
 	@Override

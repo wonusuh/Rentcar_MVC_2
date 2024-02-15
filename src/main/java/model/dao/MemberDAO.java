@@ -1,11 +1,14 @@
-package model;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.basic.rentcar.util.DBUtil;
-import com.basic.rentcar.vo.MemberVO;
+
+import model.vo.MemberVO;
 
 public class MemberDAO {
 	Connection conn;
@@ -44,6 +47,13 @@ public class MemberDAO {
 				MemberVO vo = new MemberVO();
 				vo.setNo(rs.getInt("no"));
 				vo.setId(rs.getString("id"));
+				vo.setPw(rs.getString("pw"));
+				vo.setEmail(rs.getString("email"));
+				vo.setTel(rs.getString("tel"));
+				vo.setHobby(rs.getString("hobby"));
+				vo.setJob(rs.getString("job"));
+				vo.setAge(rs.getString("age"));
+				vo.setInfo(rs.getString("info"));
 				return vo;
 			}
 		} catch (Exception e) {
@@ -85,6 +95,61 @@ public class MemberDAO {
 			ps.setString(6, vo.getJob());
 			ps.setString(7, vo.getAge());
 			ps.setString(8, vo.getInfo());
+			if (ps.executeUpdate() > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return 0;
+	}
+
+	public ArrayList<int[]> getReturnedCarsList(String id) {
+		ArrayList<int[]> list = new ArrayList<int[]>();
+		conn = DBUtil.getConnection();
+		String sql = "SELECT * FROM carreserve WHERE id = ?";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int[] arr = { rs.getInt("no"), rs.getInt("qty") };
+				System.out.println(Arrays.toString(arr));
+				list.add(arr);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return list;
+	}
+
+	public int deleteAllReservationById(String id) {
+		conn = DBUtil.getConnection();
+		String SQL = "DELETE FROM carreserve WHERE id=?";
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, id);
+			if (ps.executeUpdate() > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return 0;
+	}
+
+	public int deleteUserFromDB(MemberVO vo) {
+		conn = DBUtil.getConnection();
+		String SQL = "DELETE FROM member WHERE no=?";
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, vo.getNo());
 			if (ps.executeUpdate() > 0) {
 				return 1;
 			}

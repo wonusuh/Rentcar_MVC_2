@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.basic.rentcar.frontcontroller.Controller;
-import com.basic.rentcar.vo.MemberVO;
 
-import model.MemberDAO;
+import model.dao.MemberDAO;
+import model.vo.MemberVO;
 
 public class MemberJoinController implements Controller {
 	@Override

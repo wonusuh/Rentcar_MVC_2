@@ -1,11 +1,12 @@
-package model;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import com.basic.rentcar.util.DBUtil;
-import com.basic.rentcar.vo.CarVO;
+
+import model.vo.CarVO;
 
 public class CarDAO {
 	Connection conn;

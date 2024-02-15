@@ -10,8 +10,8 @@
 						${carVO.getName()} 차량 선택 </font></td>
 			</tr>
 			<tr>
-				<td rowspan="6" width="500" align="center"><img alt=""
-					src="img/${carVO.getImg()}" width="450"></td>
+				<td rowspan="6" width="500" align="center"><img alt="temp image"
+					src="Uploads/${carVO.getImg()}" width="450"></td>
 				<td width="250" align="center">차량이름</td>
 				<td width="250" align="center">${carVO.getName()}</td>
 			</tr>

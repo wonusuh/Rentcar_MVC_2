@@ -10,7 +10,7 @@
 			</tr>
 			<tr>
 				<td rowspan="7" width="500" align="center"><img alt=""
-					src="img/${carVO.getImg()}" width="450"></td>
+					src="Uploads/${carVO.getImg()}" width="450"></td>
 				<td width="250" align="center">대여기간</td>
 				<td width="250" align="center"><select name="dday">
 						<option value="1">1일</option>

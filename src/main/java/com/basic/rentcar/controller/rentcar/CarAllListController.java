@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
 
-import model.CarDAO;
+import model.dao.CarDAO;
 
 public class CarAllListController implements Controller {
 

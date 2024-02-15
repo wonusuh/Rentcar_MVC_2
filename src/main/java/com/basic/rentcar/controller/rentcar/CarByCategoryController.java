@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-import com.basic.rentcar.vo.CarVO;
 
-import model.CarDAO;
+import model.dao.CarDAO;
+import model.vo.CarVO;
 
 public class CarByCategoryController implements Controller {
 

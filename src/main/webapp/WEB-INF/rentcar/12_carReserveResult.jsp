@@ -8,7 +8,7 @@
 					화면 </font></td>
 		</tr>
 		<tr height="100">
-			<td align="center"><img src="img/${carVO.getImg()}" width="470" /></td>
+			<td align="center"><img src="Uploads/${carVO.getImg()}" width="470" /></td>
 		</tr>
 		<tr height="50">
 			<td align="center"><font size="5" color="red"> 차량 총예약 금액

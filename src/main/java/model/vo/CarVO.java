@@ -1,4 +1,4 @@
-package com.basic.rentcar.vo;
+package model.vo;
 
 public class CarVO {
 	private int no;

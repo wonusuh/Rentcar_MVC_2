@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-import com.basic.rentcar.vo.CarReserveVO;
-import com.basic.rentcar.vo.CarVO;
-import com.basic.rentcar.vo.MemberVO;
 
-import model.CarReserveDAO;
+import model.dao.CarReserveDAO;
+import model.vo.CarReserveVO;
+import model.vo.CarVO;
+import model.vo.MemberVO;
 
 public class CarReserveResultController implements Controller {
 	@Override

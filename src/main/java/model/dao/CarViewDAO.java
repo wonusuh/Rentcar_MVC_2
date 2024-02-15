@@ -1,11 +1,12 @@
-package model;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import com.basic.rentcar.util.DBUtil;
-import com.basic.rentcar.vo.CarViewVO;
+
+import model.vo.CarViewVO;
 
 public class CarViewDAO {
 	Connection conn;
@@ -76,7 +77,7 @@ public class CarViewDAO {
 		}
 	}
 
-	private void backRentcarQty(int no, int rentQty) {
+	public void backRentcarQty(int no, int rentQty) {
 		conn = DBUtil.getConnection();
 		try {
 			String sql = "update rentcar set total_qty =total_qty + ? where no = ?";

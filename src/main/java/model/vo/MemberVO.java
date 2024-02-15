@@ -1,4 +1,4 @@
-package com.basic.rentcar.vo;
+package model.vo;
 
 public class MemberVO {
 	private int no;

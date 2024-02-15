@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-import com.basic.rentcar.vo.CarVO;
+
+import model.vo.CarVO;
 
 public class AddCarController implements Controller {
 	@Override
