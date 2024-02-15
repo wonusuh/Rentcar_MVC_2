@@ -26,6 +26,7 @@
 				<c:if test="${user ne null and user.getId() ne 'admin'}">
 					<td align="center" width="200">${user.id}님
 						<button onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button>
+						<button onclick="location.href='${ctx}/memberQuit.do'">회원탈퇴</button>
 					</td>
 				</c:if>
 				<c:if test="${user.getId() eq 'admin'}">

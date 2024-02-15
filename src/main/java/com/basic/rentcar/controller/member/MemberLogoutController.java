@@ -15,7 +15,7 @@ public class MemberLogoutController implements Controller {
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession();
-		session.setAttribute("user", null);
+		session.invalidate();
 		return "main";
 	}
 }

@@ -53,4 +53,46 @@ public class MemberDAO {
 		}
 		return null;
 	}
+
+	public String checkMemberId(String id) {
+		String SQL = "select pw from member where id=?";
+		conn = DBUtil.getConnection();
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getString("pw");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return null;
+	}
+
+	public int memberInsert(MemberVO vo) {
+		conn = DBUtil.getConnection();
+		String SQL = "INSERT INTO member VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, vo.getId());
+			ps.setString(2, vo.getPw());
+			ps.setString(3, vo.getEmail());
+			ps.setString(4, vo.getTel());
+			ps.setString(5, vo.getHobby());
+			ps.setString(6, vo.getJob());
+			ps.setString(7, vo.getAge());
+			ps.setString(8, vo.getInfo());
+			if (ps.executeUpdate() > 0) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
+		return 0;
+	}
 }
