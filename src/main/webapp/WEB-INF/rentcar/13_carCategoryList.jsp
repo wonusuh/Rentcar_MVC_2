@@ -11,7 +11,7 @@
 			<tr>
 				<td width="500" align="center"><a
 					href="${ctx}/carReserveInfo.do?no=${carVO.getNo()}"> <img
-						alt="temp image" src="img/${carVO.getImg()}" width="500"
+						alt="temp image" src="Uploads/${carVO.getImg()}" width="500"
 						height="250">
 				</a></td>
 				<td align="center" width="500"><font size="3" color="gray"><b>차량명

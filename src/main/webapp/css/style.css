@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+button {
+	height: 25px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.addCarForm {
+	background-color: skyblue;
+	width: 1000px;
+}

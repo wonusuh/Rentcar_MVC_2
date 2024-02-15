@@ -1,4 +1,4 @@
-package com.basic.rentcar.dao;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

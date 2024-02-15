@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <title>Rentcar MVC 2</title>
 </head>
 <body>
@@ -19,11 +20,18 @@
 				<c:if test="${user eq null}">
 					<td align="center" width="200">GUEST 님
 						<button onclick="location.href='${ctx}/memberLogin.do'">로그인</button>
+						<button onclick="location.href='${ctx}/memberJoin.do'">회원가입</button>
 					</td>
 				</c:if>
-				<c:if test="${user ne null}">
+				<c:if test="${user ne null and user.getId() ne 'admin'}">
 					<td align="center" width="200">${user.id}님
 						<button onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button>
+					</td>
+				</c:if>
+				<c:if test="${user.getId() eq 'admin'}">
+					<td align="center" width="200">관리자 님
+						<button onclick="location.href='${ctx}/memberLogout.do'">로그아웃</button>
+						<button onclick="location.href='${ctx}/adminAddCar.do'">차량등록하기</button>
 					</td>
 				</c:if>
 			</tr>

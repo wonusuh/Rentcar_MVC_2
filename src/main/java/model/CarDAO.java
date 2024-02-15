@@ -1,4 +1,4 @@
-package com.basic.rentcar.dao;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -140,5 +140,30 @@ public class CarDAO {
 			DBUtil.dbclose(conn, ps, rs);
 		}
 		return bean;
+	}
+
+	public void addNewCar(CarVO vo) {
+		conn = DBUtil.getConnection();
+		String sql = "INSERT INTO rentcar VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, vo.getName());
+			ps.setInt(2, vo.getCategory());
+			ps.setInt(3, vo.getPrice());
+			ps.setInt(4, vo.getUsepeople());
+			ps.setInt(5, vo.getTotalQty());
+			ps.setString(6, vo.getCompany());
+			ps.setString(7, vo.getImg());
+			ps.setString(8, vo.getInfo());
+			if (ps.executeUpdate() > 0) {
+				System.out.println("차량을 등록했습니다.");
+			} else {
+				return;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, ps, rs);
+		}
 	}
 }

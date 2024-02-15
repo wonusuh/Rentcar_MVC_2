@@ -9,11 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.basic.rentcar.dao.CarReserveDAO;
+
 import com.basic.rentcar.frontcontroller.Controller;
 import com.basic.rentcar.vo.CarReserveVO;
 import com.basic.rentcar.vo.CarVO;
 import com.basic.rentcar.vo.MemberVO;
+
+import model.CarReserveDAO;
 
 public class CarReserveResultController implements Controller {
 	@Override

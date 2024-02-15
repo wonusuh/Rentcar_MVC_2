@@ -11,7 +11,7 @@
 			<c:forEach var="vo" items="${list}">
 				<td width="333" align="center"><a
 					href="${ctx}/carReserveInfo.do?no=${vo.getNo()}"> <img
-						alt="temp image" src="img/${vo.getImg()}" width="300" height="220">
+						alt="temp image" src="Uploads/${vo.getImg()}" width="300" height="220">
 				</a>
 					<p>차량명 : ${vo.getName()}</p></td>
 			</c:forEach>

@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.basic.rentcar.dao.MemberDAO;
 import com.basic.rentcar.frontcontroller.Controller;
 import com.basic.rentcar.vo.MemberVO;
+
+import model.MemberDAO;
 
 public class MemberLoginController implements Controller {
 	@Override
