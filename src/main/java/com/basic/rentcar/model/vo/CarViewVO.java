@@ -1,24 +1,18 @@
-package model.vo;
+package com.basic.rentcar.model.vo;
 
-public class CarReserveVO {
+public class CarViewVO {
 	private int reserveSeq;
-	private int no;
-	private String id;
+	private int no; // car no
+	private String name;
+	private int price;
+	private String img;
 	private int qty;
 	private int dday;
 	private String rday;
 	private int usein;
 	private int usewifi;
-	private int usenavi;
 	private int useseat;
-
-	public int getReserveSeq() {
-		return reserveSeq;
-	}
-
-	public void setReserveSeq(int reserveSeq) {
-		this.reserveSeq = reserveSeq;
-	}
+	private int usenavi;
 
 	public int getNo() {
 		return no;
@@ -28,12 +22,36 @@ public class CarReserveVO {
 		this.no = no;
 	}
 
-	public String getId() {
-		return id;
+	public int getReserveSeq() {
+		return reserveSeq;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setReserveSeq(int reserveSeq) {
+		this.reserveSeq = reserveSeq;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public int getQty() {
@@ -94,8 +112,8 @@ public class CarReserveVO {
 
 	@Override
 	public String toString() {
-		return "CarReserveVO [reserveSeq=" + reserveSeq + ", no=" + no + ", id=" + id + ", qty=" + qty + ", dday="
-				+ dday + ", rday=" + rday + ", usein=" + usein + ", usewifi=" + usewifi + ", usenavi=" + usenavi
-				+ ", useseat=" + useseat + "]";
+		return "CarViewVO [reserveSeq=" + reserveSeq + ", no=" + no + ", name=" + name + ", price=" + price + ", img="
+				+ img + ", qty=" + qty + ", dday=" + dday + ", rday=" + rday + ", usein=" + usein + ", usewifi="
+				+ usewifi + ", useseat=" + useseat + ", usenavi=" + usenavi + "]";
 	}
 }

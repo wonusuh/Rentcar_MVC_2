@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-
-import model.dao.CarViewDAO;
-import model.dao.MemberDAO;
-import model.vo.MemberVO;
+import com.basic.rentcar.model.dao.CarViewDAO;
+import com.basic.rentcar.model.dao.MemberDAO;
+import com.basic.rentcar.model.vo.MemberVO;
 
 public class MemberPwValidController implements Controller {
 

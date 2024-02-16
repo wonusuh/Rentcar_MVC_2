@@ -1,4 +1,4 @@
-package model.dao;
+package com.basic.rentcar.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.basic.rentcar.model.vo.MemberVO;
 import com.basic.rentcar.util.DBUtil;
-
-import model.vo.MemberVO;
 
 public class MemberDAO {
 	Connection conn;

@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
+import com.basic.rentcar.model.dao.CarDAO;
+import com.basic.rentcar.model.vo.CarVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import model.dao.CarDAO;
-import model.vo.CarVO;
 
 public class AddImageController implements Controller {
 

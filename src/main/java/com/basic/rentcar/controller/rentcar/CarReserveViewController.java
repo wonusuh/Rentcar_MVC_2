@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-
-import model.dao.CarViewDAO;
-import model.vo.CarViewVO;
-import model.vo.MemberVO;
+import com.basic.rentcar.model.dao.CarViewDAO;
+import com.basic.rentcar.model.vo.CarViewVO;
+import com.basic.rentcar.model.vo.MemberVO;
 
 public class CarReserveViewController implements Controller {
 
@@ -22,8 +21,9 @@ public class CarReserveViewController implements Controller {
 		HttpSession session = req.getSession();
 		MemberVO memVO = (MemberVO) session.getAttribute("user");
 		if (memVO == null) {
+			String ctx = req.getContextPath();
 			System.out.println("로그인을 먼저 해주세요.");
-			return "main";
+			return "redirect:" + ctx + "/memberLogin.do";
 		}
 		String id = memVO.getId();
 		ArrayList<CarViewVO> viewList = CarViewDAO.getInstance().getAllReserve(id);

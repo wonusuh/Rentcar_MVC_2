@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.carByCategory {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.carByCategory .singleRow {
+	width: 75%;
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.carByCategory .singleRow div {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.carByCategory .singleRow div img {
+	width: 300px;
+	height: 200px;
+}
+
+.carByCategory .singleRow:hover {
+	background-color: navy;
+	color: white;
+	transition: 1s ease-out;
+}
+
+.carByCategory .singleRow:not(:hover) {
+	transition: 1s ease-out;
+}

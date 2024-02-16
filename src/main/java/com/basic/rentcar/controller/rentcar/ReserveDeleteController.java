@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.basic.rentcar.frontcontroller.Controller;
-
-import model.dao.CarViewDAO;
+import com.basic.rentcar.model.dao.CarViewDAO;
 
 public class ReserveDeleteController implements Controller {
 

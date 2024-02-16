@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.basic.rentcar.frontcontroller.Controller;
-
-import model.dao.CarDAO;
-import model.vo.CarVO;
+import com.basic.rentcar.model.dao.CarDAO;
+import com.basic.rentcar.model.vo.CarVO;
 
 public class CarReserveInfoController implements Controller {
 	@Override

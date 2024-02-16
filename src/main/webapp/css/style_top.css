@@ -5,6 +5,22 @@ header {
 	width: 75%;
 }
 
+header .logo {
+	width: 100%;
+	overflow: hidden;
+	flex: 8;
+	height: 200px;
+}
+
+header .logo:hover {
+	transition: 1s ease-out;
+	background-color: blue;
+}
+
+header .logo:not(:hover) {
+	transition: 1s ease-out;
+}
+
 header div {
 	width: 100%;
 	display: flex;
@@ -12,21 +28,19 @@ header div {
 	align-items: center;
 }
 
-.logo {
-	flex: 8;
-}
-
 .log {
+	width: 100%;
 	flex: 2;
 }
 
 .logo img {
-	width: 150px;
+	width: 500px;
 }
 
 .top-menu {
 	display: flex;
 	width: 75%;
+	margin-bottom: 25px;
 }
 
 .top-menu>div {
@@ -40,7 +54,14 @@ header div {
 	align-items: center;
 }
 
-.top-menu a {
-	text-decoration: none;
+.top-menu div {
 	color: white;
+}
+
+.top-menu div:hover {
+	opacity: 50%;
+}
+
+.top-menu div:not(:hover) {
+	transition: 1s ease-out;
 }

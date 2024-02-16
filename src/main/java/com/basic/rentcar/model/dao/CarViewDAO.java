@@ -1,12 +1,12 @@
-package model.dao;
+package com.basic.rentcar.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import com.basic.rentcar.util.DBUtil;
 
-import model.vo.CarViewVO;
+import com.basic.rentcar.model.vo.CarViewVO;
+import com.basic.rentcar.util.DBUtil;
 
 public class CarViewDAO {
 	Connection conn;
@@ -25,15 +25,16 @@ public class CarViewDAO {
 	public ArrayList<CarViewVO> getAllReserve(String id) {
 		ArrayList<CarViewVO> v = new ArrayList<>();
 		conn = DBUtil.getConnection();
+		String SQL = null;
+		if (id.equals("admin")) {
+			SQL = "SELECT * FROM rentcar a2 , carreserve a1  WHERE a1.no = a2.no";
+		} else {
+			SQL = "SELECT * FROM rentcar a2 , carreserve a1  WHERE a1.id = ? AND a1.no = a2.no";
+		}
 		try {
-			// select * from rentcar a2 ,carreserve a1 where a1.id = 'qwer' and curdate() <
-			// date_format(a1.rday , '%y-%m-%d') and a1.no = a2.no;
-			// select * from rentcar a2 ,carreserve a1 where a1.id = 'qwer' and a1.no =
-			// a2.no;
-			String sql = "select * from rentcar a2 , carreserve a1  where a1.id = ? and a1.no = a2.no";
-			System.out.println(id);
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, id);
+			ps = conn.prepareStatement(SQL);
+			if (!id.equals("admin"))
+				ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				CarViewVO bean = new CarViewVO();
@@ -50,7 +51,6 @@ public class CarViewDAO {
 				bean.setUsenavi(rs.getInt("usenavi"));
 				bean.setUseseat(rs.getInt("useseat"));
 				v.add(bean);
-				System.out.println(bean);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
