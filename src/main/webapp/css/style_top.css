@@ -14,7 +14,7 @@ header .logo {
 
 header .logo:hover {
 	transition: 1s ease-out;
-	background-color: blue;
+	background-color: gray;
 }
 
 header .logo:not(:hover) {
@@ -52,6 +52,7 @@ header div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 10px;
 }
 
 .top-menu div {

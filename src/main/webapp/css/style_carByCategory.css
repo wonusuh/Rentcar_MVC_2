@@ -10,6 +10,8 @@
 	width: 75%;
 	display: flex;
 	margin-bottom: 10px;
+	width: 75%;
+	border-radius: 20px;
 }
 
 .carByCategory .singleRow div {
