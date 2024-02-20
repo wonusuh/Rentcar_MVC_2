@@ -29,12 +29,15 @@ public class MemberPwValidController implements Controller {
 			CarViewDAO cvDAO = CarViewDAO.getInstance();
 
 			ArrayList<int[]> returnedCarsList = mDao.getReturnedCarsList(user.getId());
+			// 1
 			for (int i = 0; i < returnedCarsList.size(); i += 1) {
 				int no = returnedCarsList.get(i)[0];
 				int qty = returnedCarsList.get(i)[1];
 				cvDAO.backRentcarQty(no, qty);
 			}
+			// 2
 			mDao.deleteAllReservationById(user.getId());
+			// 3
 			mDao.deleteUserFromDB(user);
 
 			session.invalidate();

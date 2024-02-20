@@ -1,10 +1,19 @@
 package com.basic.rentcar.model.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.basic.rentcar.model.vo.MemberVO;
 import com.basic.rentcar.util.DBUtil;
@@ -23,44 +32,25 @@ public class MemberDAO {
 		return instance;
 	}
 
-	public MemberVO getMember(String id, String pw) {
-		System.out.println("id= " + id + " pw=" + pw);
-		conn = DBUtil.getConnection();
+	private static SqlSessionFactory sqlSessionFactory;
+	static {
+		String resource = "com/basic/rentcar/mybatis/config.xml";
 		try {
-			String sql = "SELECT * FROM member WHERE id=? and pw=?";
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, id);
-			ps.setString(2, pw);
-			rs = ps.executeQuery();
-
-			if (rs.next()) {
-//			no INT auto_increment primary key, -- 고객 정보
-//			id VARCHAR(20), 
-//		    pw VARCHAR(20), 
-//		    email VARCHAR(50), 
-//		    tel VARCHAR(20),
-//		    hobby VARCHAR(60),
-//		    job VARCHAR(15),
-//		    age VARCHAR(10),
-//		    info VARCHAR(500)
-				MemberVO vo = new MemberVO();
-				vo.setNo(rs.getInt("no"));
-				vo.setId(rs.getString("id"));
-				vo.setPw(rs.getString("pw"));
-				vo.setEmail(rs.getString("email"));
-				vo.setTel(rs.getString("tel"));
-				vo.setHobby(rs.getString("hobby"));
-				vo.setJob(rs.getString("job"));
-				vo.setAge(rs.getString("age"));
-				vo.setInfo(rs.getString("info"));
-				return vo;
-			}
-		} catch (Exception e) {
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			DBUtil.dbclose(conn, ps, rs);
 		}
-		return null;
+	}
+
+	public MemberVO getMember(String id, String pw) {
+		Map<String, String> params = new HashMap<>();
+		params.put("id", id);
+		params.put("pw", pw);
+		SqlSession session = sqlSessionFactory.openSession();
+		MemberVO member = session.selectOne("getMember", params);
+		System.out.println(member);
+		return member;
 	}
 
 	public String checkMemberId(String id) {
